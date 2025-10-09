@@ -36,7 +36,7 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 ![Drag and Drop VM Installation](Linux/vm%20installation%20drag%20drop2.png) 
 
 
-## Important Architecture Note
+## Note
 
 **Apple Silicon Requirement:** Standard x86_64 (Intel/AMD) Ubuntu versions are incompatible with Apple Silicon Macs and will throw architecture errors.
 
