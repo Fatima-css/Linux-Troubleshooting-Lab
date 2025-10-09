@@ -32,7 +32,8 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 1. Open **VMware Fusion Player**
 2. Drag and drop the **Ubuntu 25.04 ARM64 ISO file** into VMware window
 3. Complete the on-screen installation steps to set the user account and finish the Ubuntu setup.
-![Drag and Drop VM Installation](vm%20installation%20drag%20drop.png)
+![Drag and Drop VM Installation](Linux/vm%20installation%drag%20drop.png) <img width="633" height="528" alt="vm installation drag drop" src="https://github.com/user-attachments/assets/fc65067a-5dac-4452-8f49-a28312645adc" />
+
 
 ## Important Architecture Note
 
