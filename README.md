@@ -32,12 +32,14 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 1. Open **VMware Fusion Player**
 2. Drag and drop the **Ubuntu 25.04 ARM64 ISO file** into VMware window
 3. Complete the on-screen installation steps to set the user account and finish the Ubuntu setup.
+![Drag and Drop VM Installation](vm%20installation%20drag%20drop.png)
 
 ## Important Architecture Note
 
 **Apple Silicon Requirement:** Standard x86_64 (Intel/AMD) Ubuntu versions are incompatible with Apple Silicon Macs and will throw architecture errors.
 
 **If you see this error:** "The X86 machine architecture virtual machine is incompatible with the Arm machine architecture host"
+![Architecture Incompatibility Error](error.png)
 - Solution: Use **Ubuntu ARM64 version only**
 
 ---
