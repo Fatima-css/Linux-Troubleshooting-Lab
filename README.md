@@ -46,7 +46,19 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 
 ---
 
+
 ## Linux Skills to Practice
+
+- Service management: `systemctl start/stop/restart apache2`
+- File permissions: `chmod`, `chown`, `chgrp`
+- Process monitoring: `ps`, `top`, `htop`, `kill`
+- Network troubleshooting: `ping`, `curl`, `netstat`, `ss`
+- Log analysis: `journalctl`, `tail -f`, `grep`
+- User management: `adduser`, `passwd`, `usermod`
+- Disk management: `df -h`, `du -sh`, `fdisk`
+
+---
+## Deep understanding
 pwd = "Print Working Directory" - shows where you are now
 
 ls = "List" - shows what's in the current folder
@@ -63,15 +75,10 @@ Documents Downloads Music
 $ cd Documents
 $ pwd
 /home/john/Documents
-``` 
+```
 
-- Service management: `systemctl start/stop/restart apache2`
-- File permissions: `chmod`, `chown`, `chgrp`
-- Process monitoring: `ps`, `top`, `htop`, `kill`
-- Network troubleshooting: `ping`, `curl`, `netstat`, `ss`
-- Log analysis: `journalctl`, `tail -f`, `grep`
-- User management: `adduser`, `passwd`, `usermod`
-- Disk management: `df -h`, `du -sh`, `fdisk`
+
+---
 
 ## Troubleshooting Common Issues
 
