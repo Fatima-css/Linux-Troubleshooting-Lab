@@ -65,6 +65,13 @@ $ pwd
 /home/john/Documents
 '''
 $ pwd ; /home/john ; $ ls ; Documents Downloads Music ; $ cd Documents ; $ pwd ; /home/john/Documents
+$ pwd
+/home/john
+$ ls
+Documents Downloads Music
+$ cd Documents
+$ pwd
+/home/john/Documents
 
 - Service management: `systemctl start/stop/restart apache2`
 - File permissions: `chmod`, `chown`, `chgrp`
