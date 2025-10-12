@@ -65,6 +65,7 @@ $ pwd
 /home/john/Documents
 '''
 $ pwd ; /home/john ; $ ls ; Documents Downloads Music ; $ cd Documents ; $ pwd ; /home/john/Documents
+```bash
 $ pwd
 /home/john
 $ ls
