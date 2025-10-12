@@ -55,14 +55,15 @@ cd = "Change Directory" - moves you to another folder
 
  Examples:
 
-// bash
+// 
 $ pwd
 /home/john
 $ ls
 Documents Downloads Music
 $ cd Documents
 $ pwd
-/home/john/Documents//
+/home/john/Documents
+//
 
 - Service management: `systemctl start/stop/restart apache2`
 - File permissions: `chmod`, `chown`, `chgrp`
