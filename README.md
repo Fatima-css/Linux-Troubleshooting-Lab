@@ -78,6 +78,22 @@ $ pwd
 ```
 
 
+#shortcuts
+Symbolic Links (Shortcuts)
+symbolic links (or symlinks) as the final file type (l).
+
+The Goal: Create a simple name in your home folder that points to a distant folder, /usr/share/doc.
+
+The Command: ln -s /usr/share/doc Doc
+
+ln -s: Link, symbolic (this is the command to create the shortcut).
+
+/usr/share/doc: The target (the real directory).
+
+Doc: The name of the shortcut in your current folder.
+
+The Benefit: You can then type cd Doc and instantly jump to that complicated path without taking up extra disk space.
+
 ---
 
 ## Troubleshooting Common Issues
