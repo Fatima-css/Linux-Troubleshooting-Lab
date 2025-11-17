@@ -154,22 +154,23 @@ rm -r folder        # Remove directory and contents (Recursive)
 | /var | Variable data (logs, etc.) (**CRITICAL**) |
 
 
-File Paths
-Absolute Path: /home/user/file.txt (Starts from root)
+### File Paths
+- Absolute Path: /home/user/file.txt (Starts from root)
 
-Relative Path: Documents/file.txt (From current location)
+- Relative Path: Documents/file.txt (From current location)
 
-Home shortcut: ~/Documents
+- Home shortcut: ~/Documents
 
-Wildcards
+### Wildcards
+| Wildcard | Description |
+| :--- | :--- |
+| * | Match any characters |
+| ? | Match single character |
+| [ ] | Match specific characters |
 
-Wildcard,Description
-*,Match any characters
-?,Match single character
-[],Match specific characters
 
-4. Searching and Processing Data
-Regular Expressions (RegEx)
+## 4. Searching and Processing Data
+### Regular Expressions (RegEx)
 ^ - Start of line
 
 $ - End of line
