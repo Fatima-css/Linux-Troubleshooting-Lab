@@ -60,8 +60,8 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 [username@computer ~]$
 ```
 
-$ = regular user (you)
-# = root user (administrator - be careful!)
+- $ = regular user (you)
+- # = root user (administrator - be careful!)
 
 To exit: Type exit or close the window
 
@@ -83,7 +83,8 @@ command [options] [arguments]
 ### Getting Help
 **Manual Pages (Man Pages)**
 ```bash
-man commandname```
+man commandname
+```
 Navigation: Spacebar (next page), /searchterm (search), q (quit)
 
 
@@ -95,49 +96,63 @@ apropos keyword     # Find commands about a topic
 
 ## 2. Hardware Management
 **CPU Information**
+```bash
 lscpu               # Detailed CPU info (architecture, core count)
 uname -a            # System info including architecture and kernel version
+```
 
 **Hardware Detection**
+```bash
 lspci               # List all PCI devices (graphics, network, etc.)
 lsblk               # Show disks and partitions
+```
 
 **Disk Types & Filesystems**
-Disk Types: SATA/USB: /dev/sda; NVMe: /dev/nvme0.
+- Disk Types: SATA/USB: /dev/sda; NVMe: /dev/nvme0.
 
-Partitioning: MBR (Max 2TB) vs. GPT (Modern, large disks).
+- Partitioning: MBR (Max 2TB) vs. GPT (Modern, large disks).
 
-Filesystems: ext4 (Default Linux), XFS (For large files), Btrfs (Advanced features).
+- Filesystems: ext4 (Default Linux), XFS (For large files), Btrfs (Advanced features).
 
 **Mounting Drives**
 CRITICAL: Always unmount before removing USB drives!
+```bash
 umount /mount/point
+```
 
 ## 3. File Management
 ### Essential Navigation
+```bash
 pwd                 # Show current directory ("Print Working Directory")
 ls                  # List files
 cd directory        # Change directory
+```
 
-File Operations
+### File Operations
+```bash
 touch filename      # Create empty file
 cp file1 file2      # Copy file
 mv old new          # Move/rename file
 rm filename         # Delete file (PERMANENT - no trash!)
+```
 
-Directory Management
+### Directory Management
+```bash
 mkdir folder        # Create directory
 mkdir -p a/b/c      # Create nested directories
 rmdir folder        # Remove EMPTY directory only
 rm -r folder        # Remove directory and contents (Recursive)
+```
 
-Important Directories (File System Hierarchy)
-Directory,Purpose
-/,Root directory
-/home,User files
-/etc,Configuration files (CRITICAL)
-/tmp,Temporary files
-/var,"Variable data (logs, etc.) (CRITICAL)"
+### Important Directories (File System Hierarchy)
+| Directory | Purpose |
+| :--- | :--- |
+| / | Root directory |
+| /home | User files |
+| /etc | Configuration files (**CRITICAL**) |
+| /tmp | Temporary files |
+| /var | Variable data (logs, etc.) (**CRITICAL**) |
+
 
 File Paths
 Absolute Path: /home/user/file.txt (Starts from root)
