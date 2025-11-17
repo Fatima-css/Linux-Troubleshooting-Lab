@@ -61,7 +61,7 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 ```
 
 - $ = regular user (you)
--# = root user (administrator - be careful!)
+- -# = root user (administrator - be careful!)
 
 To exit: Type exit or close the window
 
