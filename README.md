@@ -82,13 +82,16 @@ command [options] [arguments]
 
 ### Getting Help
 **Manual Pages (Man Pages)**
-man commandname
+```bash
+man commandname```
 Navigation: Spacebar (next page), /searchterm (search), q (quit)
 
 
 ### Other Help Commands
+```bash
 whatis command      # Brief description
 apropos keyword     # Find commands about a topic
+```
 
 ## 2. Hardware Management
 **CPU Information**
