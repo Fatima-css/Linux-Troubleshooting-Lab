@@ -67,6 +67,7 @@ To exit: Type exit or close the window
 
 
 ### Basic Command Structure
+```text
 command [options] [arguments]
 
 ### Essential Shell Features
