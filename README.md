@@ -69,13 +69,16 @@ To exit: Type exit or close the window
 ### Basic Command Structure
 ```text
 command [options] [arguments]
+```
 
 ### Essential Shell Features
-Feature,Control,Description
-TAB completion,Press Tab,Type part of command → Auto-complete
-Command history,"Up/down arrows, Ctrl+R",Navigate and search history
-Background jobs,Add &,"Run program in background (e.g., firefox &)"
-Pausing,"Ctrl+Z to pause, fg to resume, bg for background",Manually manage running processes
+| Feature | Control | Description |
+|---------|---------|-------------|
+| TAB completion | Press Tab | Type part of command → Auto-complete |
+| Command history | Up/down arrows, Ctrl+R | Navigate and search history |
+| Background jobs | Add & | Run program in background (e.g., firefox &) |
+| Pausing | Ctrl+Z to pause, fg to resume, bg for background | Manually manage running processes |
+
 
 ### Getting Help
 **Manual Pages (Man Pages)**
