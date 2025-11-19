@@ -370,7 +370,7 @@ done
 
 ### Account Files
 **These files store critical information about users and groups, all located in the /etc directory.**
-- ```bash/etc/passwd``` - User account details (UID, home directory, shell).
+- (`bash/etc/passwd`) - User account details (UID, home directory, shell).
 
 - ```bash /etc/shadow ``` - Encrypted passwords (only readable by root).
 
@@ -469,6 +469,6 @@ tar -tzf archive.tar.gz
 4. **Disk space:** Monitor with `df -h` and clean up with appropriate commands
 
 **Resources used:**
-Interactive: https://www.netacad.com/courses/linux-essentials?courseLang=en-US *really helpful*
-official LPI material: https://learning.lpi.org/pdfstore/LPI-Learning-Material-010-160-en.pdf
-extra: https://ebookcentral.proquest.com/lib/westerngovernors-ebooks/reader.action?c=UERG&docID=6002518&ppg=338
+- Interactive: https://www.netacad.com/courses/linux-essentials?courseLang=en-US *really helpful*
+- official LPI material: https://learning.lpi.org/pdfstore/LPI-Learning-Material-010-160-en.pdf
+- extra: https://ebookcentral.proquest.com/lib/westerngovernors-ebooks/reader.action?c=UERG&docID=6002518&ppg=338
