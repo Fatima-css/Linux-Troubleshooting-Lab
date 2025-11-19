@@ -11,7 +11,7 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 
 ---
 
-## Step 1: Download Ubuntu ARM64 Version
+### Step 1: Download Ubuntu ARM64 Version
 
 * **For Apple Silicon Macs:** You MUST use ARM64 version
 * **Download:** **Ubuntu 25.04 ARM64** from [ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
@@ -19,7 +19,7 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 
 ---
 
-## Step 2: Download VMware Fusion Player
+### Step 2: Download VMware Fusion Player
 
 * **Download:** https://www.vmware.com/products/fusion/fusion-evaluation.html
 * **Select:** "Personal Use License" (Free)
@@ -27,7 +27,7 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 
 ---
 
-## Step 3: Create Virtual Machine
+### Step 3: Create Virtual Machine
 
 1. Open **VMware Fusion Player**
 2. Drag and drop the **Ubuntu 25.04 ARM64 ISO file** into VMware window
@@ -36,7 +36,7 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 ![Drag and Drop VM Installation](Linux/vm%20installation%20drag%20drop2.png) 
 
 
-## Note
+### Note
 
 **Apple Silicon Requirement:** Standard x86_64 (Intel/AMD) Ubuntu versions are incompatible with Apple Silicon Macs and will throw architecture errors.
 
@@ -59,8 +59,8 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 ```bash
 [username@computer ~]$
 ```
-`$` = regular user (you)
-`#` = root user (administrator - be careful!)
+- `$` = regular user (you)
+- `#` = root user (administrator - be careful!)
 
 To exit: Type exit or close the window
 
@@ -80,56 +80,72 @@ command [options] [arguments]
 
 
 ### Getting Help
-**Manual Pages (Man Pages)**
+**Getting help and understanding commands is the first rule of Linux troubleshooting.**
+
+#### Manual Pages (Man Pages)
+**The man command provides the primary system documentation for commands and configuration files.**
 ```bash
 man commandname
 ```
-Man Page Navigation:
+**Man Page Navigation:**
 
-Spacebar = Next page
+- Spacebar = Next page
 
-/searchterm = Search
+- /searchterm = Search within the page
 
-q = Quit
+- q = Quit
 
 
 ### Other Help Commands
+#### Quick Descriptions
+**These commands offer fast summaries, especially useful when you don't know the exact command name.**
 ```bash
 whatis command      # Brief description
 apropos keyword     # Find commands about a topic
 ```
+#### Info Pages
+**The info command provides hypertext-style documentation, often offering more detailed, beginner-friendly explanations than man pages, especially for GNU tools.**
+```bash
+info commandname   # Detailed, hypertext documentation (use q to quit)
+```
 
 ## 2. Hardware Management
 ### CPU Information
+**These commands are essential for verifying the system architecture and capacity, which is crucial for software compatibility and licensing.**
 ```bash
 lscpu               # Detailed CPU info (architecture, core count)
 uname -a            # System info including architecture and kernel version
 ```
 
 ### Hardware Detection
+**Use these commands to inventory connected peripherals and storage devices for troubleshooting driver or mounting issues.**
 ```bash
 lspci               # List all PCI devices (graphics, network, etc.)
 lsblk               # Show disks and partitions
 ```
 
 ### Disk Types & Filesystems
-- Disk Types: SATA/USB: /dev/sda; NVMe: /dev/nvme0.
+**Understanding storage structures is necessary for preparing and mounting drives.**
+- Disk Types: `SATA/USB: /dev/sda;` `NVMe: /dev/nvme0`.
 
 - Partitioning: MBR (Max 2TB) vs. GPT (Modern, large disks).
 
 - Filesystems: ext4 (Default Linux), XFS (For large files), Btrfs (Advanced features).
 
-### Mounting Drives
-CRITICAL: Always unmount before removing USB drives!
+### Disk Space and Mounting Drives
+CRITICAL: Always check free space and unmount before removing a drive to prevent data corruption.
 ```bash
-umount /mount/point
+df -h               # Show Disk Free space in human-readable format (Essential check!)
+umount /mount/point # Safely detach a mounted device
 ```
 
 ## 3. File Management
 ### Essential Navigation
+**Basic commands for moving around the system's file hierarchy.**
 ```bash
 pwd                 # Show current directory ("Print Working Directory")
 ls                  # List files
+ls -la              # List files with detailed permissions and hidden files
 cd directory        # Change directory
 ```
 
@@ -146,6 +162,7 @@ $ pwd
 ```
 
 ### File Operations
+**Manipulating files is a core daily task; always exercise caution with deletion (rm).**
 ```bash
 touch filename      # Create empty file
 cp file1 file2      # Copy file
@@ -154,31 +171,35 @@ rm filename         # Delete file (PERMANENT - no trash!)
 ```
 
 ### Directory Management
+**Commands for creating, renaming, and removing directories.**
 ```bash
 mkdir folder        # Create directory
-mkdir -p a/b/c      # Create nested directories
+mkdir -p a/b/c      # Create nested directories (parent directories first)
 rmdir folder        # Remove EMPTY directory only
-rm -r folder        # Remove directory and contents (Recursive)
+rm -r folder        # Remove directory and contents (Recursive - DANGER!)
 ```
 
 ### Important Directories (File System Hierarchy)
+**Understanding the Linux File System Hierarchy (FHS) is non-negotiable for system administration.**
 | Directory | Purpose |
 | :--- | :--- |
-| / | Root directory |
+| / | Root directory (The base of the entire file system) |
 | /home | User files |
 | /etc | Configuration files (**CRITICAL**) |
-| /tmp | Temporary files |
-| /var | Variable data (logs, etc.) (**CRITICAL**) |
+| /tmp | Temporary files (Cleared on reboot) |
+| /var | Variable data (logs, mail, web content) (**CRITICAL**) |
 
 
 ### File Paths
+**The methods for addressing files on the system.**
 - Absolute Path: /home/user/file.txt (Starts from root)
 
-- Relative Path: Documents/file.txt (From current location)
+- Relative Path: Documents/file.txt (Starts from the current location)
 
-- Home shortcut: ~/Documents
+- Home shortcut: ~/Documents (Short for /home/user)
 
 ### Wildcards
+**Special characters used to match patterns of filenames in commands like ls, cp, or rm.**
 | Wildcard | Description |
 | :--- | :--- |
 | * | Match any characters |
@@ -446,6 +467,17 @@ tar -tzf archive.tar.gz
 | -f | File | **MANDATORY:** Specifies the **f**ilename of the archive (the word that follows). |
 | -z | Gzip | Compresses/decompresses using the **Gzip** utility (creates `.tar.gz`). |
 | -J | XZ | Compresses/decompresses using the **XZ** utility (strongest compression, creates `.tar.xz`). |
+
+## 7. Network Troubleshooting
+### Essential Network Commands
+**These commands are crucial for verifying network connectivity, checking open ports, and diagnosing service communication failures.**
+```bash
+ip a            # Show IP addresses and interfaces (modern replacement for ifconfig)	
+ping hostname   # Test basic network connectivity	
+curl URL        # Test connectivity and retrieve data from web services	
+ss -tulpn       # List open ports, protocols, and the associated process (modern netstat)
+```
+
 ---
 ## Linux Skills to Practice
 
