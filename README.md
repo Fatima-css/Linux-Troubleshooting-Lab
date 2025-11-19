@@ -59,9 +59,8 @@ Required software for running this lab on Apple Silicon Macs (M1/M2/M3):
 ```bash
 [username@computer ~]$
 ```
-
-- $ = regular user (you)
-- -# = root user (administrator - be careful!)
+`$` = regular user (you)
+`#` = root user (administrator - be careful!)
 
 To exit: Type exit or close the window
 
@@ -261,10 +260,7 @@ sudo apt remove pkg  # Remove package
 ### Understanding Load Average
 The load average is a crucial metric that tells you how busy your system is. It appears as three numbers: 1-minute, 5-minute, and 15-minute averages.
 
-1.0 = 100% CPU utilization on single-core system, a single-core CPU is fully utilized.
-
-Above these values = system overloaded
-
+Interpretation: A value of 1.0 indicates that, on average, a single-core CPU is fully utilized. A server with a load average consistently above its CPU core count is overloaded.
 
 ## Text Editing
 ### Nano (Easy Editor)
