@@ -239,9 +239,11 @@ systemctl stop apache2     # Stop a service
 ```
 
 ### Package Management (Debian/Ubuntu)
+```bash
 sudo apt update      # Update package lists
 sudo apt install pkg # Install package
 sudo apt remove pkg  # Remove package
+```
 
 ## 6. User and Security
 ### Account Types
