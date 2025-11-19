@@ -88,23 +88,20 @@ The man command provides the primary system documentation for commands and confi
 man commandname
 ```
 **Man Page Navigation:**
-
-- Spacebar = Next page
-
-- /searchterm = Search within the page
-
-- q = Quit
-
+* **Spacebar** = Next page
+* **/searchterm** = Search within the page
+* **q** = Quit
 
 ### Other Help Commands
+
 #### Quick Descriptions
-**These commands offer fast summaries, especially useful when you don't know the exact command name.**
+These commands offer fast summaries, especially useful when you don't know the exact command name.
 ```bash
 whatis command      # Brief description
 apropos keyword     # Find commands about a topic
 ```
 #### Info Pages
-**The info command provides hypertext-style documentation, often offering more detailed, beginner-friendly explanations than man pages, especially for GNU tools.**
+The info command provides hypertext-style documentation, often offering more detailed, beginner-friendly explanations than man pages, especially for GNU tools.
 ```bash
 info commandname   # Detailed, hypertext documentation (use q to quit)
 ```
