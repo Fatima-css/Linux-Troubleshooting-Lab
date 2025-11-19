@@ -1,4 +1,4 @@
-# Linux Troubleshooting Lab: Setup Guide & Command Reference
+# Linux Troubleshooting Lab: Setup and Essential Commands
 
 
 
