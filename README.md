@@ -83,7 +83,7 @@ command [options] [arguments]
 **Getting help and understanding commands is the first rule of Linux troubleshooting.**
 
 #### Manual Pages (Man Pages)
-**The man command provides the primary system documentation for commands and configuration files.**
+The man command provides the primary system documentation for commands and configuration files.
 ```bash
 man commandname
 ```
