@@ -95,26 +95,26 @@ apropos keyword     # Find commands about a topic
 ```
 
 ## 2. Hardware Management
-**CPU Information**
+### CPU Information
 ```bash
 lscpu               # Detailed CPU info (architecture, core count)
 uname -a            # System info including architecture and kernel version
 ```
 
-**Hardware Detection**
+### Hardware Detection
 ```bash
 lspci               # List all PCI devices (graphics, network, etc.)
 lsblk               # Show disks and partitions
 ```
 
-**Disk Types & Filesystems**
+### Disk Types & Filesystems
 - Disk Types: SATA/USB: /dev/sda; NVMe: /dev/nvme0.
 
 - Partitioning: MBR (Max 2TB) vs. GPT (Modern, large disks).
 
 - Filesystems: ext4 (Default Linux), XFS (For large files), Btrfs (Advanced features).
 
-**Mounting Drives**
+### Mounting Drives
 CRITICAL: Always unmount before removing USB drives!
 ```bash
 umount /mount/point
@@ -126,6 +126,18 @@ umount /mount/point
 pwd                 # Show current directory ("Print Working Directory")
 ls                  # List files
 cd directory        # Change directory
+```
+
+**Examples:**
+
+```bash
+$ pwd
+/home/john
+$ ls
+Documents Downloads Music
+$ cd Documents
+$ pwd
+/home/john/Documents
 ```
 
 ### File Operations
@@ -171,114 +183,137 @@ rm -r folder        # Remove directory and contents (Recursive)
 
 ## 4. Searching and Processing Data
 ### Regular Expressions (RegEx)
-^ - Start of line
+- ^ - Start of line
 
-$ - End of line
+- $ - End of line
 
-. - Any single character
+- . - Any single character
 
-* - Zero or more repetitions
+- * - Zero or more repetitions
 
-+ - One or more repetitions
+- + - One or more repetitions
 
-? - Zero or one occurrence
+- ? - Zero or one occurrence
 
-Search Commands
+### Search Commands
+```bash
 grep pattern file    # Search inside files
 grep -r pattern dir  # Recursive search
 find dir -name "*.txt"  # Find files by name
+```
 
-
-Data Processing Utilities
+### Data Processing Utilities
+```bash
 wc file              # Word count
 cut -d: -f1 file     # Extract fields
 sort file            # Sort lines
 cat file1 file2      # Concatenate files
+```
 
-
-Redirection and Pipes
+### Redirection and Pipes
+```bash
 command > file       # Overwrite output to file
 command >> file      # Append output to file
 command 2> error.log # Redirect errors only
 command < input.txt  # Redirect input
+```
 
+```bash
 command1 | command2  # Pipe output to another command
 ls -l | grep txt | wc -l  # Chain multiple commands
+```
 
-5. Process and Package Management
-Viewing Processes
-
+## 5. Process and Package Management
+### Viewing Processes
+```bash
 ps aux               # Show all processes
 top                  # Live process monitor
 free -h              # Memory usage
+```
 
-Service Management (Systemd)
+### Service Management (Systemd)
+```bash
 systemctl status apache2   # Check service status (CRITICAL for troubleshooting)
 systemctl start apache2    # Start a service
 systemctl stop apache2     # Stop a service
+```
 
-Package Management (Debian/Ubuntu)
+### Package Management (Debian/Ubuntu)
 sudo apt update      # Update package lists
 sudo apt install pkg # Install package
 sudo apt remove pkg  # Remove package
 
-6. User and Security
-Account Types
-Root: UID 0, full system access
+## 6. User and Security
+### Account Types
+- Root: UID 0, full system access
 
-System: UID 1-999, service accounts
+- System: UID 1-999, service accounts
 
-User: UID 1000+, regular users
+- User: UID 1000+, regular users
 
-Account Files
-/etc/passwd - User account details
+### Account Files
+- /etc/passwd - User account details
 
-/etc/shadow - Encrypted passwords
+- /etc/shadow - Encrypted passwords
 
-/etc/group - Groups
+- /etc/group - Groups
 
-Security Commands
+### Security Commands
+```bash
 whoami               # Current user
 id                   # User identity
 sudo command         # Run single command as root (SAFE)
 sudo -i              # Interactive root session
 su -                 # Switch to root (Less safe)
+```
 
-File Permissions
-Permission,Symbol,Octal Value
-Read,r,4
-Write,w,2
-Execute,x,1
+### File Permissions
+| Permission | Symbol | Octal Value |
+| :--- | :--- | :--- |
+| Read | r | 4 |
+| Write | w | 2 |
+| Execute | x | 1 |
 
-Changing Permissions and Ownership
+### Changing Permissions and Ownership
+```bash
 chmod 755 file       # Octal method (rwxr-xr-x)
 chmod u+x file       # Symbolic method (add execute to owner)
 chown user:group file# Change owner and group
+```
 
-7. Scripting Basics (Automation Foundation)
-Script Structure
+## 7. Scripting Basics (Automation Foundation)
+### Script Structure
+```bash
 #!/bin/bash
 # Your commands here
 echo "Hello World"
+```
 
-Execution
+### Execution
+```bash
 chmod +x script.sh   # Make script executable
 ./script.sh          # Run script
+```
 
-Variables and Arguments
+### Variables and Arguments
+```bash
 name="John"
 echo "Hello $name"
 echo "First argument: $1"
 echo "All arguments: $@"
+```
 
-Conditionals
+### Conditionals
+```bash
 if [ -f "$file" ]; then
     echo "File exists"
 else
     echo "File not found"
 fi
+```
 
-Loops
+### Loops
+```bash
 for file in *.txt; do
     echo "Processing $file"
 done
@@ -288,44 +323,7 @@ while [ $count -le 5 ]; do
     echo "Count: $count"
     count=$((count + 1))
 done
-
-
-
-
-pwd = "Print Working Directory" - shows where you are now
-
-ls = "List" - shows what's in the current folder
-
-cd = "Change Directory" - moves you to another folder
-
- Examples:
-
-```bash
-$ pwd
-/home/john
-$ ls
-Documents Downloads Music
-$ cd Documents
-$ pwd
-/home/john/Documents
 ```
-
-
-#shortcuts
-Symbolic Links (Shortcuts)
-symbolic links (or symlinks) as the final file type (l).
-
-The Goal: Create a simple name in your home folder that points to a distant folder, /usr/share/doc.
-
-The Command: ln -s /usr/share/doc Doc
-
-ln -s: Link, symbolic (this is the command to create the shortcut).
-
-/usr/share/doc: The target (the real directory).
-
-Doc: The name of the shortcut in your current folder.
-
-The Benefit: You can then type cd Doc and instantly jump to that complicated path without taking up extra disk space.
 
 ---
 
@@ -335,3 +333,8 @@ The Benefit: You can then type cd Doc and instantly jump to that complicated pat
 2. **Permission denied:** Verify file permissions with `ls -la`
 3. **Network issues:** Test connectivity with `ping` and `curl`
 4. **Disk space:** Monitor with `df -h` and clean up with appropriate commands
+
+Resources used: 
+Interactive: https://www.netacad.com/courses/linux-essentials?courseLang=en-US *really helpful*
+official LPI material: https://learning.lpi.org/pdfstore/LPI-Learning-Material-010-160-en.pdf
+extra: https://ebookcentral.proquest.com/lib/westerngovernors-ebooks/reader.action?c=UERG&docID=6002518&ppg=338
