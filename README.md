@@ -496,4 +496,5 @@ ss -tulpn       # List open ports, protocols, and the associated process (modern
 **Resources used:**
 - Interactive: https://www.netacad.com/courses/linux-essentials?courseLang=en-US *really helpful*
 - official LPI material: https://learning.lpi.org/pdfstore/LPI-Learning-Material-010-160-en.pdf
+- Full doc of Notes: https://docs.google.com/document/d/1HLjbssmzvgtDKCgrsXDT_npQFT-SBzDL90VFV0YTzAs/edit?tab=t.0
 - extra: https://ebookcentral.proquest.com/lib/westerngovernors-ebooks/reader.action?c=UERG&docID=6002518&ppg=338
