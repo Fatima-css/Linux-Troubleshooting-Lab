@@ -370,11 +370,11 @@ done
 
 ### Account Files
 **These files store critical information about users and groups, all located in the /etc directory.**
-- (`bash/etc/passwd`) - User account details (UID, home directory, shell).
+- `/etc/passwd` - User account details (UID, home directory, shell).
 
-- ```bash /etc/shadow ``` - Encrypted passwords (only readable by root).
+- `/etc/shadow ` - Encrypted passwords (only readable by root).
 
-- bash```/etc/group``` - Groups and their members.
+- `/etc/group` - Groups and their members.
 
 ### Security Commands
 ```bash
