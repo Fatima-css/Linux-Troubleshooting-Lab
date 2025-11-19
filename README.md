@@ -76,7 +76,7 @@ command [options] [arguments]
 |---------|---------|-------------|
 | TAB completion | Press Tab | Type part of command → Auto-complete |
 | Command history | Up/down arrows, Ctrl+R | Navigate and search history |
-| Background jobs | Add & | Run program in background (e.g., firefox &) |
+| Background jobs | Add &  (e.g., firefox &)| Run program in background |
 | Pausing | Ctrl+Z to pause, fg to resume, bg for background | Manually manage running processes |
 
 
@@ -85,7 +85,13 @@ command [options] [arguments]
 ```bash
 man commandname
 ```
-Navigation: Spacebar (next page), /searchterm (search), q (quit)
+Man Page Navigation:
+
+Spacebar = Next page
+
+/searchterm = Search
+
+q = Quit
 
 
 ### Other Help Commands
@@ -183,108 +189,125 @@ rm -r folder        # Remove directory and contents (Recursive)
 
 ## 4. Searching and Processing Data
 ### Regular Expressions (RegEx)
-- ^ - Start of line
+**Regular Expressions are patterns used by commands like grep to find specific text within files. They are essential for log analysis and data extraction.**
 
-- $ - End of line
-
-- . - Any single character
-
-- * - Zero or more repetitions
-
-- + - One or more repetitions
-
-- ? - Zero or one occurrence
+| Symbol | Meaning | Example |
+| :---: | :--- | :--- |
+| ^ | Start of line | `^error` finds lines starting with "error" |
+| $ | End of line | `status$` finds lines ending with "status" |
+| . | Any single character | `a.b` finds "acb", "a2b", etc. |
+| * | Zero or more repetitions | `a*` finds "", "a", "aa", "aaa" |
+| + | One or more repetitions | `a+` finds "a", "aa", "aaa" |
+| ? | Zero or one occurrence | `colou?r` finds "color" or "colour" |
 
 ### Search Commands
+**These commands allow you to locate files and specific content within them quickly, which is fundamental to troubleshooting.**
 ```bash
 grep pattern file    # Search inside files
-grep -r pattern dir  # Recursive search
-find dir -name "*.txt"  # Find files by name
+grep -r pattern dir  # Recursive search (searches all files within a directory and its subdirectories)
+find dir -name "*.txt"  # Find files by name (e.g., find all .txt files)
 ```
 
 ### Data Processing Utilities
+**These tools are often used together via pipes to clean, format, and summarize raw data (e.g., summarizing web server logs).**
 ```bash
 wc file              # Word count
 cut -d: -f1 file     # Extract fields
 sort file            # Sort lines
-cat file1 file2      # Concatenate files
+cat file1 file2      # Concatenate (combine) files and display their content
 ```
 
 ### Redirection and Pipes
+**Redirection changes where a command gets its input or sends its output. Pipes connect the output of one command directly to the input of another. These are the building blocks of automation.**
 ```bash
 command > file       # Overwrite output to file
 command >> file      # Append output to file
-command 2> error.log # Redirect errors only
-command < input.txt  # Redirect input
+command 2> error.log # Redirect errors only 
+command < input.txt  # Redirect input (use a file as input for a command)
 ```
 
 ```bash
 command1 | command2  # Pipe output to another command
-ls -l | grep txt | wc -l  # Chain multiple commands
+ls -l | grep txt | wc -l  # Chain multiple commands: List files, filter for "txt", count the resulting lines
 ```
 
 ## 5. Process and Package Management
 ### Viewing Processes
+**Monitoring system resources is essential for diagnosing slowdowns, memory leaks, or runaway applications in a cloud environment.**
 ```bash
 ps aux               # Show all processes
-top                  # Live process monitor
-free -h              # Memory usage
+top                  # Live process monitor (press 'q' to quit)
+free -h              # Memory usage in human-readable format
 ```
 
 ### Service Management (Systemd)
+**Systemd is the system and service manager for modern Linux distributions. It is used to manage critical background services (daemons) like web servers, databases, and logging.**
 ```bash
 systemctl status apache2   # Check service status (CRITICAL for troubleshooting)
 systemctl start apache2    # Start a service
 systemctl stop apache2     # Stop a service
+systemctl enable apache2   # Configure the service to start automatically at boot
 ```
 
 ### Package Management (Debian/Ubuntu)
+**The Advanced Packaging Tool (APT) is used to install, update, and remove software. Using sudo grants temporary root permissions to perform these administrative tasks.**
 ```bash
 sudo apt update      # Update package lists
-sudo apt install pkg # Install package
+sudo apt upgrade     # Upgrade all installed packages to their newest versions
+sudo apt install pkg # Install a new package
 sudo apt remove pkg  # Remove package
 ```
 
-## 6. User and Security
-### Account Types
-- Root: UID 0, full system access
+### Understanding Load Average
+The load average is a crucial metric that tells you how busy your system is. It appears as three numbers: 1-minute, 5-minute, and 15-minute averages.
 
-- System: UID 1-999, service accounts
+1.0 = 100% CPU utilization on single-core system, a single-core CPU is fully utilized.
 
-- User: UID 1000+, regular users
+Above these values = system overloaded
 
-### Account Files
-- /etc/passwd - User account details
 
-- /etc/shadow - Encrypted passwords
-
-- /etc/group - Groups
-
-### Security Commands
+## Text Editing
+### Nano (Easy Editor)
+**Nano is a simple, user-friendly editor for quick configuration file changes.**
 ```bash
-whoami               # Current user
-id                   # User identity
-sudo command         # Run single command as root (SAFE)
-sudo -i              # Interactive root session
-su -                 # Switch to root (Less safe)
+nano filename.txt
 ```
+Essential Commands:
 
-### File Permissions
-| Permission | Symbol | Octal Value |
-| :--- | :--- | :--- |
-| Read | r | 4 |
-| Write | w | 2 |
-| Execute | x | 1 |
+- Ctrl+O = Save
 
-### Changing Permissions and Ownership
-```bash
-chmod 755 file       # Octal method (rwxr-xr-x)
-chmod u+x file       # Symbolic method (add execute to owner)
-chown user:group file# Change owner and group
-```
+- Ctrl+X = Exit
 
-## 7. Scripting Basics (Automation Foundation)
-### Script Structure
+- Ctrl+K = Cut line
+
+- Ctrl+U = Paste
+
+- Ctrl+W = Search
+
+### Vi/Vim (Powerful Editor)
+**Vim is a highly efficient, modal editor favored by advanced users. It operates in three main modes:**
+Three Modes:
+1. Command Mode (Default): Navigation and commands.
+
+2. Insert Mode (Press i): Used for typing text.
+
+3. Ex Mode (Press :): Used for saving and quitting.
+
+**Essential Commands:**
+
+| Mode | Command | Action |
+| :---: | :---: | :--- |
+| **Command** | i | Enter Insert Mode |
+| **Insert** | Esc | Return to Command Mode |
+| **Command** | :w | Save (Ex Command) |
+| **Command** | :q | Quit (Ex Command) |
+| **Command** | :wq | Save and quit (Ex Command) |
+| **Command** | :q! | Quit without saving (Force Quit) |
+
+## Scripting Basics
+### Creating Scripts
+**All Bash scripts must start with a shebang line, which tells the operating system which interpreter to use (in this case, /bin/bash).**
+
 ```bash
 #!/bin/bash
 # Your commands here
@@ -292,20 +315,25 @@ echo "Hello World"
 ```
 
 ### Execution
+**A script must have execute permission before it can be run directly.**
 ```bash
-chmod +x script.sh   # Make script executable
-./script.sh          # Run script
+chmod +x script.sh   # Makes the script executable
+./script.sh          # Runs the script (./ means "in the current directory")
 ```
 
 ### Variables and Arguments
+**Variables store temporary data (name). Arguments are values provided to the script when it's run, automatically stored in special variables ($1, $2, etc).**
 ```bash
-name="John"
-echo "Hello $name"
-echo "First argument: $1"
-echo "All arguments: $@"
+name="John"          # Assigns a value to a user-defined variable
+echo "Hello $name"   # Uses the user-defined variable
+echo "First argument: $1" # Refers to the first value passed to the script
+echo "All arguments: $@" # Refers to all values passed to the script
+echo "Script name: $0"  # Bonus: Refers to the name of the script itself
 ```
 
 ### Conditionals
+**Conditionals (if/then/else) allow your script to make decisions by testing the status of a file, a variable, or the result of a command.**
+
 ```bash
 if [ -f "$file" ]; then
     echo "File exists"
@@ -313,21 +341,125 @@ else
     echo "File not found"
 fi
 ```
+(The -f test operator checks if the variable $file points to a regular file.)
 
 ### Loops
+**Loops (for and while) automate repetitive tasks, running a block of code multiple times either for every item in a list (for) or until a specific condition is met (while).**
 ```bash
-for file in *.txt; do
+for file in *.txt; do        # FOR Loop: Iterates over a list (e.g., all files ending in .txt)
     echo "Processing $file"
 done
 
-count=1
-while [ $count -le 5 ]; do
+count=1                     # WHILE Loop: Runs repeatedly as long as a condition is TRUE
+while [ $count -le 5 ]; do  
     echo "Count: $count"
     count=$((count + 1))
 done
 ```
 
+## 6. User and Security
+### Account Types
+**Managing user accounts and permissions is fundamental to system security (Principle of Least Privilege).**
+
+- Root: UID 0 (full system access/administrator)
+
+- System: UID 1-999 (service accounts,This numerical range is reserved for System Accounts)
+
+- User: UID 1000+ (regular users)
+
+
+### Account Files
+**These files store critical information about users and groups, all located in the /etc directory.**
+- ```bash/etc/passwd``` - User account details (UID, home directory, shell).
+
+- ```bash /etc/shadow ``` - Encrypted passwords (only readable by root).
+
+- bash```/etc/group``` - Groups and their members.
+
+### Security Commands
+```bash
+whoami               # Current user
+id                   # User identity
+who                   # Show logged-in users
+w                     # Show users + what they're running
+```
+**Root Access Methods**
+sudo (Recommended):
+```bash
+sudo command         # Run single command as root (SAFE)
+sudo -i              # Interactive root session
+```
+- Uses your password
+
+- Creates audit trail (nonrepudiation)
+
+**su (Less Safe):**
+```bash
+su -                 # Switch to the root user (less safe, requires root password)
+```
+- No audit trail (repudiation environment)
+
+### File Permissions
+**Linux uses permissions to control who can Read (r), Write (w), or Execute (x) a file or directory.**
+| Permission | Symbol | Octal Value |
+| :--- | :--- | :--- |
+| Read | r | 4 |
+| Write | w | 2 |
+| Execute | x | 1 |
+
+### Changing Permissions
+**Octal Method: This method assigns permissions using a single **three-digit number** (e.g., 755), where each digit represents the permission level for the **Owner**, **Group**, and **Others**. The number is calculated by summing the **Read (4), Write (2), Execute (1)** values.**
+```bash
+# Breakdown of 755: Owner (7 = 4+2+1), Group (5 = 4+1), Other (5 = 4+1)
+chmod 755 file.txt    # Sets rwxr-xr-x (Owner has read/write/execute, Group/Others have read/execute)
+chmod 644 file.txt    # Sets rw-r--r-- (Owner has read/write, Group/Others have read only)
+```
+
+**Symbolic Method: This method uses letters (u, g, o, a) and symbols (+, -, =) to add or remove specific permissions.**
+
+```bash
+chmod u+x script.sh   # Adds execute permission (+) for the Owner (u). Makes a script executable.
+chmod go-w file.txt   # Removes write permission (-) for Group (g) and Others (o).
+```
+### Changing Ownership
+**These commands change which user or group is the designated owner of the file, which is essential for proper administration.**
+```bash
+chown user file.txt          # Change the owner of the file.
+chown user:group file.txt    # Change the owner AND the group of the file.
+chgrp group file.txt         # Change the group owner only.
+```
+
+### Archiving and Compression
+**tar (Tape Archiver)**
+```bash
+# Create archive
+tar -czvf archive.tar.gz /path/to/files
+
+# Extract archive
+tar -xzvf archive.tar.gz
+
+# List contents
+tar -tzf archive.tar.gz
+```
+| Flag | Meaning | Purpose |
+| :---: | :--- | :--- |
+| -c | Create | **C**reates a new archive bundle. |
+| -x | Extract | E**x**tracts files from an existing archive. |
+| -t | List | Lists the **t**able of contents of the archive. |
+| -v | Verbose | Shows a detailed list of files being processed (good for seeing progress). |
+| -f | File | **MANDATORY:** Specifies the **f**ilename of the archive (the word that follows). |
+| -z | Gzip | Compresses/decompresses using the **Gzip** utility (creates `.tar.gz`). |
+| -J | XZ | Compresses/decompresses using the **XZ** utility (strongest compression, creates `.tar.xz`). |
 ---
+## Linux Skills to Practice
+
+- Service management: `systemctl start/stop/restart apache2`
+- File permissions: `chmod`, `chown`, `chgrp`
+- Process monitoring: `ps`, `top`, `htop`, `kill`
+- Network troubleshooting: `ping`, `curl`, `netstat`, `ss`
+- Log analysis: `journalctl`, `tail -f`, `grep`
+- User management: `adduser`, `passwd`, `usermod`
+- Disk management: `df -h`, `du -sh`, `fdisk`
 
 ## Troubleshooting Common Issues
 
@@ -336,7 +468,7 @@ done
 3. **Network issues:** Test connectivity with `ping` and `curl`
 4. **Disk space:** Monitor with `df -h` and clean up with appropriate commands
 
-Resources used: 
+**Resources used:**
 Interactive: https://www.netacad.com/courses/linux-essentials?courseLang=en-US *really helpful*
 official LPI material: https://learning.lpi.org/pdfstore/LPI-Learning-Material-010-160-en.pdf
 extra: https://ebookcentral.proquest.com/lib/westerngovernors-ebooks/reader.action?c=UERG&docID=6002518&ppg=338
