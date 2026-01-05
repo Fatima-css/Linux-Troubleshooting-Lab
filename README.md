@@ -486,6 +486,76 @@ ss -tulpn       # List open ports, protocols, and the associated process (modern
 - User management: `adduser`, `passwd`, `usermod`
 - Disk management: `df -h`, `du -sh`, `fdisk`
 
+### Commonly Used Linux Commands
+
+| Command Name | Command Description |
+| :--- | :--- |
+| `ls` | **ls** lists the contents of a directory. |
+| `cd` | **cd** changes the current directory. |
+| `pwd` | **pwd** prints the working directory (current directory). |
+| `echo` | **echo** displays a line of text or a variable value. |
+| `cat` | **cat** concatenates and displays the contents of files. |
+| `grep` | **grep** searches for patterns in files using regular expressions. |
+| `man` | **man** displays the manual for a command. |
+| `chmod` | **chmod** changes file or directory permissions. |
+| `chown` | **chown** changes the owner of a file or directory. |
+| `ps` | **ps** displays currently running processes. |
+| `kill` | **kill** terminates a process by PID. |
+| `top` | **top** displays active processes and system resource usage. |
+| `df` | **df** displays disk space usage. |
+| `du` | **du** shows disk usage of files and directories. |
+| `ssh` | **ssh** connects to another system securely via SSH. |
+| `clear` | **clear** clears the terminal display. |
+| `less` | **less** views the contents of files or command output one screen at a time. |
+| `uname` | **uname** provides basic system information. |
+| `whoami` | **whoami** displays the username of the currently logged-in user. |
+| `head` | **head** displays the beginning of a file or output from a command. |
+| `tail` | **tail** displays the end of a file or output from a command. |
+| `diff` | **diff** compares files line by line and shows the differences. |
+| `cmp` | **cmp** allows you to check if two files are identical. |
+| `comm` | **comm** compares two sorted files line by line. |
+| `sort` | **sort** sorts lines of text files or input data. |
+| `export` | **export** sets environment variables for child processes. |
+| `zip` | **zip** creates ZIP archive files. |
+| `service` | **service** starts and stops services. |
+| `killall` | **killall** terminates processes by name. |
+| `ifconfig` | **ifconfig** displays network interfaces and IP addresses. |
+| `traceroute` | **traceroute** traces the route packets take to a destination. |
+| `wget` | **wget** performs direct downloads of files. |
+| `ufw` | **ufw** is a firewall command. |
+| `iptables` | **iptables** is a base firewall command. |
+| `apt`, `pacman`, `yum`, `rpm` | **apt**, **pacman**, **yum**, and **rpm** simplify software package management. |
+| `sudo` | **sudo** escalates privileges for a command. |
+| `cal` | **cal** displays a calendar in the terminal. |
+| `alias` | **alias** creates shortcuts for frequently used commands. |
+| `dd` | **dd** performs low-level copying and conversion of data. |
+| `whereis` | **whereis** locates binary, source, and manual page files for a command. |
+| `whatis` | **whatis** provides a brief description of a command or utility. |
+| `useradd` | **useradd** creates a new user account on the system. |
+| `usermod` | **usermod** modifies an existing user account. |
+| `passwd` | **passwd** changes a user's password. |
+| `mount` | **mount** attaches file systems to the file system hierarchy. |
+
+
+### Essential Linux Commands for File and Directories Management
+
+| Command Name | Command Description |
+| :--- | :--- |
+| `mkdir` | **mkdir** creates a new directory. |
+| `rmdir` | **rmdir** removes an empty directory. |
+| `cp` | **cp** copies files or directories. |
+| `mv` | **mv** moves or renames files or directories. |
+| `rm` | **rm** deletes files or directories. |
+| `touch` | **touch** creates an empty file or updates a timestamp. |
+| `ln` | **ln** creates a hard or symbolic link to a file. |
+| `find` | **find** searches for files and directories based on specific criteria. |
+| `stat` | **stat** displays detailed information about a file or directory. |
+| `tar` | **tar** archives multiple files into a single file. |
+| `gzip` | **gzip** compresses files using the gzip algorithm. |
+| `unzip` | **unzip** extracts files from a zip archive. |
+| `more` | **more** views the contents of a file one screen at a time. |
+| `chgrp` | **chgrp** changes the group ownership of files and directories. |
+
 ## Troubleshooting Common Issues
 
 1. **Service won't start:** Check `systemctl status` and `journalctl`
